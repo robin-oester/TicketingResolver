@@ -13,6 +13,9 @@ public class Payment {
   }
 
   public double getPerPerson() {
+    if(toUsers == null || toUsers.length == 0) {
+      return 0.0;
+    }
     return amount / toUsers.length;
   }
 

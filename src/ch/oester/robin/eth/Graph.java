@@ -6,6 +6,11 @@ public class Graph {
   private double[][] matrix;
 
   public Graph(User... users) {
+    for(int i = 0; i < users.length; i++) {
+      if(users[i] == null) {
+        throw new NullPointerException("User at index " + i + " is null");
+      }
+    }
     this.users = users;
     this.matrix = new double[users.length][users.length];
   }
@@ -51,7 +56,7 @@ public class Graph {
         if(matrix[i][j] != 0) {
           double val = matrix[i][j];
           double printVal = Math.round(val * 20) / 20.0;
-          System.out.println(getUser(i).getName() + " owes " + getUser(j).getName() + " exactly " + printVal + ".-");
+          System.out.println(users[i].getName() + " owes " + users[j].getName() + " exactly " + printVal + ".-");
         }
       }
     }
@@ -71,18 +76,14 @@ public class Graph {
   }
 
   private int getUserIndex(User u) {
+    if(u == null) {
+      throw new NullPointerException("User should not be null");
+    }
     for(int i = 0; i < users.length; i++) {
       if(users[i] == u) {
         return i;
       }
     }
     throw new IllegalArgumentException("User with name " + u.getName() + " is not registered");
-  }
-
-  private User getUser(int index) {
-    if(index < 0 || index >= users.length) {
-      throw new IndexOutOfBoundsException("User index is out of bounds");
-    }
-    return users[index];
   }
 }
