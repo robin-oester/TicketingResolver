@@ -5,10 +5,10 @@ import ch.oester.robin.eth.User;
 
 public class TrainingCamp implements Event {
 
-  private User elia;
-  private User robin;
-  private User rafael;
-  private User willy;
+  private final User elia;
+  private final User robin;
+  private final User rafael;
+  private final User willy;
 
   public TrainingCamp() {
     elia = new User("Elia");

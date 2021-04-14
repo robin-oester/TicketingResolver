@@ -5,9 +5,9 @@ import ch.oester.robin.eth.User;
 
 public class TestEvent implements Event {
 
-  private User tester1;
-  private User tester2;
-  private User tester3;
+  private final User tester1;
+  private final User tester2;
+  private final User tester3;
 
   public TestEvent() {
     tester1 = new User("Tester 1");
